@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -16,7 +17,12 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $notification = array(
+                        'message' => 'User Logged Out Successfully',
+                        'alert-type' => 'success'
+                    );
+
+        return redirect('/login')->with($notification);
     } // End Method
 
         public function Profile(){
@@ -46,9 +52,42 @@ class AdminController extends Controller
                         $data['profile_image'] = $filename;
                     }
                     $data->save();
+
+                    $notification = array(
+                        'message' => 'Admin Profile Updated Successfully',
+                        'alert-type' => 'info'
+                    );
     
-                    return redirect()->route('admin.profile');
+                    return redirect()->route('admin.profile')->with($notification);
                 } // End Method
+
+                    public function ChangePassword(){
+                        return view('admin.admin_change_password');
+                    } // End Method
+
+                        public function UpdatePassword(Request $request){
+                            $validateData = $request->validate([
+                                'oldpassword' => 'required',
+                                'newpassword' => 'required',
+                                'confirm_password' => 'required|same:newpassword',
+                            ]);
+
+                            $hashedPassword = Auth::user()->password;
+                            if (Hash::check($request->oldpassword, $hashedPassword)) {
+                                $user = User::find(Auth::id());
+                                $user->password = Hash::make($request->newpassword);
+                                $user->save();
+                                session()->flash('message', 'Password Updated Successfully');
+                                session()->flash('alert-type', 'success');
+                                Auth::logout();
+                                return redirect()->route('login');
+                            } else {
+                                session()->flash('message', 'Old Password is Incorrect');
+                                session()->flash('alert-type', 'error');
+
+                                return redirect()->back();
+                            }
+                        } // End Method
 
              
 }

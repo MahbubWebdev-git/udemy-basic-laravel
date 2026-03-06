@@ -3,11 +3,12 @@
 @section('admin')
     <div class="page-content">
         <div class="container-fluid">
+
             <div class="row">
                 <div class="col-lg-6">
                     <div class="card">
                         <div class="text-center">
-                            <img src="{{ asset('upload/admin_images/'.$adminData->profile_image) }}" alt="Profile Image" class="img-fluid avatar-x1">
+                            <img src="{{ (!empty($adminData->profile_image)) ? asset('upload/admin_images/'.$adminData->profile_image) : asset('upload/no_image.jpg') }}" alt="Profile Image" class="img-fluid avatar-x1">
                         </div>
                         <div class="card-body">
                             <h4 class="card-text">Name: {{ $adminData->name }}</h4>
@@ -22,6 +23,7 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 @endsection

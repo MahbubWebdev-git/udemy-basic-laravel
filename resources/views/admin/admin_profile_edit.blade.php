@@ -11,6 +11,17 @@
                         <div class="card-body">
 
                             <h4 class="card-title">Edit Profile</h4>
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li class="alert alert-danger">{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+
                             <form method="POST" action="{{ route('store.profile') }}" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row mb-3">
@@ -40,7 +51,7 @@
                                  <div class="row mb-3">
                                     <label for="example-text-input" class="col-sm-2 col-form-label"> </label>
                                     <div class="col-sm-10">
-                                        <img src="{{ asset($editData->profile_image) }}" alt="Profile Image" class="rounded avatar-lg" id="showImage" style="width: 100px; height: 100px; object-fit: cover;">
+                                        <img src="{{ (!empty($editData->profile_image)) ? asset('upload/admin_images/'.$editData->profile_image) : asset('upload/no_image.jpg') }}" alt="Profile Image" class="rounded avatar-lg" id="showImage" style="width: 100px; height: 100px; object-fit: cover;">
                                     </div>
                                 </div>
                                 <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Profile">
