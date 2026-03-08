@@ -16,3 +16,7 @@
 - Image::canvas() replaced by Image::create() and so on. Just replace function. Worked for me, hope work for you.
 - <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 - <script src="{{ asset('backend/assets/js/code.js') }}"></script>
+
+- php artisan make:model Portfolio -m
+- php artisan migrate
+- php artisan make:controller Home/PortfollioController
