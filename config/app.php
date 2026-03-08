@@ -2,6 +2,7 @@
 
 return [
 
+    'Image' => Intervention\Image\Facades\Image::class,
     /*
     |--------------------------------------------------------------------------
     | Application Name
@@ -52,7 +53,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'http://localhost'),
+    'url' => env('APP_URL', 'http://127.0.0.1'),
 
     /*
     |--------------------------------------------------------------------------

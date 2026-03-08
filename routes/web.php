@@ -4,22 +4,24 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DemoController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Home\HomeSliderController;
+use App\Http\Controllers\Home\AboutController;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.index');
 });
 
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::controller(DemoController::class)->group(function(){
+Route::controller(DemoController::class)->group(function () {
     Route::get('/about', 'about')->name('about')->middleware('check');
     Route::get('/contact', 'ContactMethode')->name('contact.page');
 });
 
 // Admin All Route
-Route::controller(AdminController::class)->group(function(){
+Route::controller(AdminController::class)->group(function () {
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/admin/profile', 'Profile')->name('admin.profile');
     Route::get('/edit/profile/edit/{id}', 'EditProfile')->name('edit.profile');
@@ -29,11 +31,27 @@ Route::controller(AdminController::class)->group(function(){
     Route::post('/update/password', 'UpdatePassword')->name('update.password');
 });
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+// Home Slide All Route
+Route::controller(HomeSliderController::class)->group(function () {
+    Route::get('/home/slide', 'HomeSlider')->name('home.slide');
+    Route::post('/update/slide', 'UpdateSlider')->name('update.slider');
+});
+
+// About Page All Route
+Route::controller(AboutController::class)->group(function () {
+    Route::get('/about/page', 'AboutPage')->name('about.page');
+    Route::post('/update/about', 'UpdateAbout')->name('update.about');
+    Route::get('/about', 'HomeAbout')->name('home.about');
+
+    Route::get('/about/multi/image', 'AboutMultiImage')->name('about.multi.image');
+    Route::post('/store/multi/image', 'StoreMultiImage')->name('store.multi.image');
+
+    Route::get('/all/multi/image', 'AllMultiImage')->name('all.multi.image');
+    Route::get('/edit/multi/image/{id}', 'EditMultiImage')->name('edit.multi.image');
+    
+    Route::post('/update/multi/image', 'UpdateMultiImage')->name('update.multi.image');
+    Route::get('/delete/multi/image/{id}', 'DeleteMultiImage')->name('delete.multi.image');
+});
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -41,4 +59,10 @@ Route::controller(AdminController::class)->group(function(){
 //     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 // });
 
-require __DIR__.'/auth.php';
+// Route::middleware('auth')->group(function () {
+//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+// });
+
+require __DIR__ . '/auth.php';
