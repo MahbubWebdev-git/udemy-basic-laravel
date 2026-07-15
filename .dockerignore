@@ -1,0 +1,6 @@
+.git
+vendor
+node_modules
+.env
+.phpunit.result.cache
+Docker-compose.yml
