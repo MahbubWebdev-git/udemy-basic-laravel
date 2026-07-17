@@ -50,11 +50,23 @@ class AdminController extends Controller
 
                     if ($request->file('profile_image')) {
                         $file = $request->file('profile_image');
-                        @unlink(public_path('upload/admin_images/'.$data->profile_image));
+
+                        // ১. পুরোনো ইমেজটি যদি ফোল্ডারে থাকে, তবে তা নিরাপদে ডিলিট করা (Unlink)
+                        if (!empty($data->profile_image) && file_exists(base_path('upload/admin_images/'.$data->profile_image))) {
+                            @unlink(base_path('upload/admin_images/'.$data->profile_image));
+                        }
+
+                        // ২. নতুন ইমেজের জন্য একদম ইউনিক একটি নাম তৈরি করা
                         $filename = date('YmdHi').$file->getClientOriginalName();
-                        $file->move(public_path('upload/admin_images'),$filename);
+
+                        // ৩. cPanel-এর মেইন রুট ফোল্ডারের ভেতরে ইমেজটি সফলভাবে সেভ করা
+                        $file->move(base_path('upload/admin_images'), $filename);
+
+                        // ৪. ডাটাবেজে সেভ করার জন্য ফাইলের নামটি অ্যাসাইন করা
                         $data->profile_image = $filename;
                     }
+
+
                     $data->save();
 
                     $notification = array(
