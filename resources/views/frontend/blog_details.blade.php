@@ -7,12 +7,12 @@
     <section class="breadcrumb__wrap">
         <div class="container custom-container">
             <div class="row justify-content-center">
-                <div class="col-xl-6 col-lg-8 col-md-10">
+                <div class="col-lg-8 col-md-10">
                     <div class="breadcrumb__wrap__content">
-                        <h2 class="title">Single Article</h2>
+                        <h2 class="title">{{ $blogs->blog_title }}</h2>
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
                                 <li class="breadcrumb-item active" aria-current="page">Blog Details</li>
                             </ol>
                         </nav>
@@ -42,9 +42,12 @@
                     <div class="standard__blog__post">
                         <div class="standard__blog__thumb">
                             <img src="{{ asset($blogs->blog_image) }}" class="img-fluid w-100" alt="">
+                            <span class="post__by">By : Mahbub_Webdev</span>
                         </div>
+                         
                         <div class="blog__details__content services__details__content">
                             <ul class="blog__post__meta">
+
                                 <li><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($blogs->created_at)->diffForHumans() }}</li>
 
                             </ul>
@@ -76,10 +79,10 @@
                                         <h4 class="title">Previous Post</h4>
                                         <div class="blog__next__prev__post">
                                             <div class="blog__next__prev__thumb">
-                                                <a href="blog-details.html"><img src="assets/img/blog/blog_prev.jpg" alt=""></a>
+                                                <p><img src="assets/img/blog/blog_prev.jpg" alt=""></p>
                                             </div>
                                             <div class="blog__next__prev__content">
-                                                <h5 class="title"><a href="blog-details.html">Digital Marketing Agency Pricing Guide.</a></h5>
+                                                <h5 class="title"><a href="">Digital Marketing Agency Pricing Guide.</a></h5>
                                             </div>
                                         </div>
                                     </div>
@@ -89,10 +92,10 @@
                                         <h4 class="title">Next Post</h4>
                                         <div class="blog__next__prev__post">
                                             <div class="blog__next__prev__thumb">
-                                                <a href="blog-details.html"><img src="assets/img/blog/blog_next.jpg" alt=""></a>
+                                                <a href=""><img src="assets/img/blog/blog_next.jpg" alt=""></a>
                                             </div>
                                             <div class="blog__next__prev__content">
-                                                <h5 class="title"><a href="blog-details.html">App Prototyping
+                                                <h5 class="title"><a href="#">App Prototyping
                                                 Types, Example & Usages.</a></h5>
                                             </div>
                                         </div>
@@ -234,19 +237,19 @@
                             <h4 class="widget-title">Recent Comment</h4>
                             <ul class="sidebar__comment">
                                 <li class="sidebar__comment__item">
-                                    <a href="blog-details.html">Rasalina Sponde</a>
+                                    <a href="#">Rasalina Sponde</a>
                                     <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
                                 </li>
                                 <li class="sidebar__comment__item">
-                                    <a href="blog-details.html">Rasalina Sponde</a>
+                                    <a href="#">Rasalina Sponde</a>
                                     <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
                                 </li>
                                 <li class="sidebar__comment__item">
-                                    <a href="blog-details.html">Rasalina Sponde</a>
+                                    <a href="#">Rasalina Sponde</a>
                                     <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
                                 </li>
                                 <li class="sidebar__comment__item">
-                                    <a href="blog-details.html">Rasalina Sponde</a>
+                                    <a href="#">Rasalina Sponde</a>
                                     <p>There are many variations of passages of lorem ipsum available, but the majority have</p>
                                 </li>
                             </ul>
@@ -254,17 +257,17 @@
                         <div class="widget">
                             <h4 class="widget-title">Popular Tags</h4>
                             <ul class="sidebar__tags">
-                                <li><a href="blog.html">Business</a></li>
-                                <li><a href="blog.html">Design</a></li>
-                                <li><a href="blog.html">apps</a></li>
-                                <li><a href="blog.html">landing page</a></li>
-                                <li><a href="blog.html">data</a></li>
-                                <li><a href="blog.html">website</a></li>
-                                <li><a href="blog.html">book</a></li>
-                                <li><a href="blog.html">Design</a></li>
-                                <li><a href="blog.html">product design</a></li>
-                                <li><a href="blog.html">landing page</a></li>
-                                <li><a href="blog.html">data</a></li>
+                                <li><a href="#">Business</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">apps</a></li>
+                                <li><a href="#">landing page</a></li>
+                                <li><a href="#">data</a></li>
+                                <li><a href="#">website</a></li>
+                                <li><a href="#">book</a></li>
+                                <li><a href="#">Design</a></li>
+                                <li><a href="#">product design</a></li>
+                                <li><a href="#">landing page</a></li>
+                                <li><a href="#">data</a></li>
                             </ul>
                         </div>
                     </aside>

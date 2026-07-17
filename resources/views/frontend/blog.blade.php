@@ -47,13 +47,13 @@
                     @foreach ($allblogs as $item)
                     <div class="standard__blog__post">
                         <div class="standard__blog__thumb">
-                            <a href="blog-details.html"><img class="img-fluid w-100" src="{{ asset($item->blog_image) }}" alt=""></a>
-                            <a href="blog-details.html" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
+                            <a href="{{ route('blog.details', $item->id) }}"><img class="img-fluid w-100" src="{{ asset($item->blog_image) }}" alt=""></a>
+                            <a href="{{ route('blog.details', $item->id) }}" class="blog__link"><i class="far fa-long-arrow-right"></i></a>
                         </div>
                         <div class="standard__blog__content">
                             <div class="blog__post__avatar">
                                 <div class="thumb"><img class="img-fluid w-100" src="{{ asset($item->blog_image) }}" alt=""></div>
-                                <span class="post__by">By : <a href="#">Halina Spond</a></span>
+                                <span class="post__by">By : <a href="#">Mahbub_Webdev</a></span>
                             </div>
                             <h2 class="title"><a href="{{ route('blog.details', $item->id) }}">{{ $item->blog_title }}</a></h2> 
                              
