@@ -1,0 +1,40 @@
+[18-Jul-2026 09:40:26 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:40:26 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:44:50 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:44:50 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:45:43 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:45:43 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:46:55 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:46:55 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:47:06 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:47:06 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:48:11 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:48:11 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:48:31 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:48:31 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:48:41 UTC] PHP Warning:  require(/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php): Failed to open stream: No such file or directory in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10
+[18-Jul-2026 09:48:41 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/mahbub/mahbub.dreamwebdev.com/vendor/autoload.php' (include_path='.:/opt/alt/php82/usr/share/pear:/opt/alt/php82/usr/share/php:/usr/share/pear:/usr/share/php') in /home/mahbub/mahbub.dreamwebdev.com/artisan:10
+Stack trace:
+#0 {main}
+  thrown in /home/mahbub/mahbub.dreamwebdev.com/artisan on line 10

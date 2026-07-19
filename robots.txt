@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /vendor/
+Disallow: /storage/
+Disallow: /app/
+Disallow: /bootstrap/
+Disallow: /config/
+Disallow: /database/
+
+Sitemap: https://mahbub.dreamwebdev.com

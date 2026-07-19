@@ -12,10 +12,11 @@ use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\SitemapController;
 
-// Route::get('/', function () {
-//     return view('frontend.index');
-// });
+// Dynamic XML Sitemap Route
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
+
 
 Route::get('/dashboard', function () {
     return view('admin.index');
