@@ -12,7 +12,6 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        // Render হোস্টিংয়ের সমস্ত রিভার্স প্রক্সিকে ট্রাস্ট করার নির্দেশ (Fixes 403 Invalid Signature)
         $middleware->trustProxies(at: '*');
     })
 

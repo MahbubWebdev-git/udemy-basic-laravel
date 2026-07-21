@@ -1,4 +1,5 @@
 <IfModule mod_rewrite.c>
+    SetEnv IfNoCase X-Forwarded-Proto https HTTPS=on
     <IfModule mod_negotiation.c>
         Options -MultiViews -Indexes
     </IfModule>

@@ -15,8 +15,12 @@ class AppServiceProvider extends ServiceProvider
      * Register any application services.
      */
     public function register(): void
+    
     {
-        //
+    
+        if (app()->environment('production') || env('APP_ENV') === 'production') {
+            URL::forceScheme('https');
+        }
     }
 
     /**
