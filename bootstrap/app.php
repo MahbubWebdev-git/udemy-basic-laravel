@@ -15,9 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
     $middleware->trustProxies(at: '*');
 
     $middleware->alias([
-        'admin.approved' => \App\Http\Middleware\CheckAdminApproval::class, // 'admin.approved' কেটে শুধু 'approved' দিন
-    ]); 
-    
+        'admin.approved' => \App\Http\Middleware\CheckAdminApproval::class,
+        'check' => \App\Http\Middleware\CheckAge::class,
+    ]);
     })
 
     ->withExceptions(function (Exceptions $exceptions): void {
