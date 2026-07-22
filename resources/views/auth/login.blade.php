@@ -31,7 +31,6 @@
                         <div class="text-center mt-4">
                             <div class="mb-3">
                                 <a href="{{ route('home') }}" class="auth-logo">
-                                    sdfsdfsd
                                     <img src="{{ asset('images/logo.png') }}" height="30" class="logo-dark mx-auto" alt="">
                                     <img src="{{ asset('images/logo.png') }}" height="30" class="logo-light mx-auto" alt="">
                                 </a>

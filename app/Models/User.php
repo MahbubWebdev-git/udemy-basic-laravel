@@ -22,6 +22,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'username',
         'email',
         'password',
+        'is_approved', // নতুন কলামটি এখানে যোগ করা হয়েছে
     ];
 
     /**

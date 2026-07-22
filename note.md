@@ -99,6 +99,20 @@
         ]);
     - php artisan db:seed --class=FooterTableSeeder
 
+# for migration table
+- php artisan make:migration add_is_approved_to_users_table --table=users
+- php artisan migrate
+# ১. ইউজারের কাছে থ্যাঙ্ক ইউ মেইল পাঠানোর ক্লাস
+- php artisan make:notification UserRegistrationPendingNotification
+
+# ২. অ্যাডমিনকে অ্যালার্ট মেইল পাঠানোর ক্লাস
+- php artisan make:notification AdminNewUserAlertNotification
+- php artisan tinker
+
+
+
+
+
 
 
 

@@ -11,6 +11,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Notifications\AdminNewUserAlertNotification;
+use App\Notifications\UserRegistrationPendingNotification;
+use Illuminate\Support\Facades\Notification;
 
 class RegisteredUserController extends Controller
 {
@@ -43,11 +46,17 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
+        $user->notify(new UserRegistrationPendingNotification($user));
+
+        $adminEmail = 'bdswapan@gmail.com';
+        Notification::route('mail', $adminEmail)
+        ->notify(new AdminNewUserAlertNotification($user));
+
         event(new Registered($user));
 
         // Do not auto-login the user. Require email verification first.
         // A verification email will be sent because the Registered event was fired.
         // Redirect to the verification notice with a status message to show instructions.
-        return redirect()->route('verification.notice')->with('status', 'verification-link-sent');
-    }
+        return redirect()->route('login')->with('status', 'Registration successful! Your account is pending admin approval. You will receive an email once approved.');
+}
 }
