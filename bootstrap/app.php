@@ -12,11 +12,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        $middleware->trustProxies(at: '*');
+    $middleware->trustProxies(at: '*');
 
-        $middleware->alias([
-        'admin.approved' => \App\Http\Middleware\CheckAdminApproval::class,
+    $middleware->alias([
+        'admin.approved' => \App\Http\Middleware\CheckAdminApproval::class, // 'admin.approved' কেটে শুধু 'approved' দিন
     ]); 
+    
     })
 
     ->withExceptions(function (Exceptions $exceptions): void {

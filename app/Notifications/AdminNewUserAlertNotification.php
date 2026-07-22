@@ -15,7 +15,7 @@ class AdminNewUserAlertNotification extends Notification
 
     /**
      * Create a new notification instance.
-     * এখানে আমরা কন্ট্রোলার থেকে পাঠানো নতুন ইউজারের অবজেক্টটি গ্রহণ করছি।
+     *
      */
     public function __construct($newUser)
     {
@@ -38,15 +38,17 @@ class AdminNewUserAlertNotification extends Notification
     public function toMail(object $notifiable): MailMessage
     {
         $loginUrl = url('/login');
+        
+        $pendingUrl = route('admin.pending.users');
 
-        return (new MailMessage)
+         return (new MailMessage)
             ->subject('Alert: New User Registration Pending Approval')
             ->greeting('Hello Admin,')
             ->line('A new user has just registered on your website and is waiting for your review.')
             ->line('**User Details:**')
             ->line('Name: ' . $this->newUser->name)
             ->line('Email: ' . $this->newUser->email)
-            ->action('Review and Approve User', $loginUrl)
+            ->action('Review and Approve User', $pendingUrl) // এখানে $pendingUrl ধরিয়ে দেওয়া হলো
             ->line('Please login to the admin panel to approve this account.');
     }
 

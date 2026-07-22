@@ -5,6 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Support\Facades\Auth;
 
 class CheckAdminApproval
 {
@@ -16,12 +17,11 @@ class CheckAdminApproval
     public function handle(Request $request, Closure $next): Response
     {
         if (Auth::check() && Auth::user()->is_approved != 1) {
-            Auth::logout(); // তাকে ফোর্সফুলি লগআউট করে দিন
+            Auth::logout();
 
             $request->session()->invalidate();
             $request->session()->regenerateToken();
 
-            // লগইন পেজে একটি লাল এরর মেসেজ সহ ফেরত পাঠান
             return redirect()->route('login')->withErrors([
                 'email' => 'Your account is pending admin approval. Please wait for confirmation.'
             ]);
