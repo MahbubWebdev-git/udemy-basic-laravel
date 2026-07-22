@@ -19,19 +19,20 @@
                             <div class="navbar__wrap main__menu d-none d-xl-flex">
                                 <ul class="navigation">
                                     <li class="{{ ($route == 'home')? 'active' : '' }}"><a href="{{ url('/') }}">Home</a></li>
-                                    <li class="{{ ($route == 'home.about')? 'active' : '' }}"><a href="{{ route('home.about') }}">About</a></li>
+                                    <li class="{{ ($route == 'about')? 'active' : '' }}"><a href="{{ route('about') }}">About</a></li>
                                     <li class="{{ ($route == 'home.services')? 'active' : '' }}"><a href="#">Services</a></li>
-                                    <li class="{{ ($route == 'home.portfolio')? 'active' : '' }}"><a href="{{ route('home.portfolio') }}">Portfolio</a>          
-                                    </li>
-                                    <li class="{{ ($route == 'home.blog')? 'active' : '' }}"><a href="{{ route('home.blog') }}">Our Blog</a>
-                                        
-                                    </li>
-                                    <li class="{{ ($route == 'contact.me')? 'active' : '' }}"><a href="{{ route('contact.me') }}">contact me</a></li>
+                                    <li class="{{ ($route == 'home.portfolio')? 'active' : '' }}"><a href="{{ route('home.portfolio') }}">Portfolio</a></li>
+                                    <li class="{{ ($route == 'home.blog')? 'active' : '' }}"><a href="{{ route('home.blog') }}">Our Blog</a></li>
+                                    
+                                    <!-- এখানে 'contact.page' নিশ্চিত করুন -->
+                                    <li class="{{ ($route == 'contact.page')? 'active' : '' }}"><a href="{{ route('contact.page') }}">contact me</a></li>
                                 </ul>
                             </div>
                             <div class="header__btn d-none d-md-block">
-                                <a href="contact.html" class="btn">Contact me</a>
+                                <!-- এখানেও 'contact.page' নিশ্চিত করুন -->
+                                <a href="{{ route('contact.page') }}" class="btn">Contact me</a>
                             </div>
+
                         </nav>
                     </div>
                     <!-- Mobile Menu  -->
