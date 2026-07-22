@@ -39,9 +39,9 @@
                         <nav class="menu__box">
                             <div class="close__btn"><i class="fal fa-times"></i></div>
                             <div class="nav-logo">
-                                <a href="index.html" class="logo__black"><img
+                                <a href="{{ url('/') }}" class="logo__black"><img
                                         src="{{ asset('images/logo.png') }}" alt=""></a>
-                                <a href="index.html" class="logo__white"><img
+                                <a href="{{ url('/') }}" class="logo__white"><img
                                         src="{{ asset('images/logo.png') }}" alt=""></a>
                             </div>
                             <div class="menu__outer">

@@ -14,10 +14,10 @@
                             <h4 class="card-text">Name: {{ $adminData->name }}</h4>
                             <h4 class="card-text">Email: {{ $adminData->email }}</h4>
                             <h4 class="card-text">User Name: {{ $adminData->username }}</h4>
-                            <!-- <h4 class="card-text">Profile Image: </h4> -->
-                            <!-- <div class="text-center">
-                                <img src="{{ asset($adminData->profile_image) }}" alt="Profile Image" class="rounded-circle avatar-x1 mt-4 mb-4" style="width: 150px; height: 150px; object-fit: cover;">
-                            </div> -->
+                            <h4 class="card-text">Profile Image: {{ $adminData->profile_image }}</h4>
+                            <div class="text-center">
+                                <img src="{{ asset('upload/admin_images/'.$adminData->profile_image) }}" alt="Profile Image" class="rounded-circle avatar-x1 mt-4 mb-4" style="width: 150px; height: 150px; object-fit: cover;">
+                            </div>
                             <h4 class="card-text">Last updated: {{ $adminData->updated_at->diffForHumans() }}</h4>
                             <a href="{{ route('edit.profile', $adminData->id) }}" class="btn btn-info btn-rounded waves-effect waves-light">Edit Profile</a>
                     </div>

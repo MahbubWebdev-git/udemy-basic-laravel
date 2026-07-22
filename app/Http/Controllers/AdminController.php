@@ -42,30 +42,36 @@ class AdminController extends Controller
                         return redirect()->route('edit.profile', Auth::user()->id);
                     }
 
+                    $validated = $request->validate([
+                        'name' => 'required|string|max:255',
+                        'email' => 'required|email|max:255',
+                        'username' => 'required|string|max:255',
+                        'profile_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+                    ]);
+
                     $id = Auth::user()->id;
                     $data = User::find($id);
-                    $data->name = $request->name;
-                    $data->email = $request->email;
-                    $data->username = $request->username;
+                    $data->name = $validated['name'];
+                    $data->email = $validated['email'];
+                    $data->username = $validated['username'];
 
-                    if ($request->file('profile_image')) {
+                    if ($request->hasFile('profile_image')) {
                         $file = $request->file('profile_image');
+                        $destinationPath = public_path('upload/admin_images');
 
-                        // ১. পুরোনো ইমেজটি যদি ফোল্ডারে থাকে, তবে তা নিরাপদে ডিলিট করা (Unlink)
-                        if (!empty($data->profile_image) && file_exists(base_path('upload/admin_images/'.$data->profile_image))) {
-                            @unlink(base_path('upload/admin_images/'.$data->profile_image));
+                        if (!file_exists($destinationPath)) {
+                            mkdir($destinationPath, 0755, true);
                         }
 
-                        // ২. নতুন ইমেজের জন্য একদম ইউনিক একটি নাম তৈরি করা
+                        if (!empty($data->profile_image) && file_exists($destinationPath.'/'.$data->profile_image)) {
+                            @unlink($destinationPath.'/'.$data->profile_image);
+                        }
+
                         $filename = date('YmdHi').$file->getClientOriginalName();
+                        $file->move($destinationPath, $filename);
 
-                        // ৩. cPanel-এর মেইন রুট ফোল্ডারের ভেতরে ইমেজটি সফলভাবে সেভ করা
-                        $file->move(base_path('upload/admin_images'), $filename);
-
-                        // ৪. ডাটাবেজে সেভ করার জন্য ফাইলের নামটি অ্যাসাইন করা
                         $data->profile_image = $filename;
                     }
-
 
                     $data->save();
 
