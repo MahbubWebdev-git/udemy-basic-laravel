@@ -31,7 +31,13 @@ class HomeSliderController extends Controller
         if ($request->file('home_slide')) {
             $image = $request->file('home_slide');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
-            Image::read($image)->resize(600, 600)->save('upload/home_slide/' . $name_gen);
+            $destinationPath = public_path('upload/home_slide');
+
+            if (!is_dir($destinationPath)) {
+                mkdir($destinationPath, 0755, true);
+            }
+
+            Image::read($image)->resize(600, 600)->save($destinationPath . '/' . $name_gen);
             $save_url = 'upload/home_slide/' . $name_gen;
 
             HomeSlide::findOrFail($slide_id)->update([
