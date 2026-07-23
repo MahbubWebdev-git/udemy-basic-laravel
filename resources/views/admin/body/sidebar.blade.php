@@ -40,6 +40,15 @@
                     </a>
                 </li>
 
+                @if(auth()->user()->role === 'admin')
+                <li>
+                    <a href="{{ route('admin.all.users') }}" class="waves-effect">
+                        <i class="ri-user-settings-line"></i>
+                        <span>User Management</span>
+                    </a>
+                </li>
+                @endif
+
                 <li>
                     <a href="javascript: void(0);" class="has-arrow waves-effect">
                         <i class="ri-mail-send-line"></i>

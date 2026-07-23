@@ -15,6 +15,13 @@ class AboutController extends Controller
     public function AboutPage(){
  
         $aboutpage = About::find(1);
+        // যদি লগইন করা ইউজার অ্যাডমিন না হয় এবং তার 'about' পেজ এডিটের অনুমতি না থাকে
+    if (auth()->user()->role !== 'admin' && !in_array('about', auth()->user()->allowed_pages ?? [])) {
+        return redirect()->route('dashboard')->with([
+            'message' => 'You do not have permission to edit the About Page!',
+            'alert-type' => 'error'
+        ]);
+    }
         return view('admin.about_page.about_page_all',compact('aboutpage'));
 
      } // End Method 

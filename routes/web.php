@@ -12,7 +12,7 @@ use App\Http\Controllers\Home\BlogController;
 use App\Http\Controllers\Home\FooterController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\SitemapController;
-use App\Http\Controllers\Admin\UserController; // নতুন কন্ট্রোলার ইমপোর্ট করা হলো
+use App\Http\Controllers\Admin\UserController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +25,7 @@ Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap')
 // Frontend Public Controller Routes
 Route::controller(DemoController::class)->group(function () {
     Route::get('/', 'HomeMain')->name('home');
-    Route::get('/about', 'about')->name('about')->middleware('check');
+    Route::get('/about', 'about')->name('about');
     Route::get('/contact', 'ContactMethode')->name('contact.page');
 });
 
@@ -51,6 +51,12 @@ Route::middleware(['auth', 'admin.approved'])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.index');
     })->name('dashboard');
+
+    // ইউজার রোল ও পারমিশন ম্যানেজমেন্ট রাউটস (অনুমোদিত অ্যাডমিনদের জন্য)
+    Route::get('/admin/all-users', [UserController::class, 'allUsers'])->name('admin.all.users');
+    Route::post('/admin/user/toggle-approval/{id}', [UserController::class, 'toggleApproval'])->name('admin.user.toggle');
+    Route::post('/admin/user/update-role/{id}', [UserController::class, 'updateRolePermissions'])->name('admin.user.update.role');
+
 
     // ২. নতুন ইউজার পেন্ডিং ও অ্যাপ্রুভাল গেটওয়ে
     Route::get('/admin/pending-users', [UserController::class, 'pendingUsers'])->name('admin.pending.users');

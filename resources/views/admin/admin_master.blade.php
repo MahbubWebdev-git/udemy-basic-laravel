@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-@yield('tinymce-config')
+@yield('tinymce-config') 
     <meta charset="utf-8" />
     <title>Dashboard | Upcube - Admin & Dashboard Template</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,7 +106,6 @@
     
     <!-- App & Initialization Scripts (Load these LAST) -->
     <script src="{{ asset('backend/assets/js/app.js') }}"></script>
-    <script src="{{ asset('backend/assets/js/pages/dashboard.init.js') }}"></script>
     <script src="{{ asset('backend/assets/js/pages/form-editor.init.js') }}"></script>
     <script src="{{ asset('backend/assets/js/pages/datatables.init.js') }}"></script>
     <script src="{{ asset('backend/assets/js/code.js') }}"></script>

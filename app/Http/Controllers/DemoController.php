@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\About;
 use Illuminate\Http\Request;
 
 class DemoController extends Controller
 {
-     public function HomeMain()
+    public function HomeMain()
     {
         if (view()->exists('frontend.index')) {
             return view('frontend.index');
@@ -14,26 +15,25 @@ class DemoController extends Controller
 
         return response('Home page placeholder', 200);
     }
-    
-    // Return an about page if view exists, otherwise a simple response
+
     public function about()
     {
-        if (view()->exists('about')) {
-            return view('about');
+        $aboutpage = About::find(1) ?? new About();
+
+        if (view()->exists('frontend.about_page')) {
+            return view('frontend.about_page', compact('aboutpage'));
         }
 
         return response('About page placeholder', 200);
     }
 
-    // Return a contact page if view exists, otherwise a simple response
     public function ContactMethode()
     {
-        if (view()->exists('contact')) {
-            return view('contact');
+        if (view()->exists('frontend.contact')) {
+            return view('frontend.contact');
         }
 
         return response('Contact page placeholder', 200);
     }
-
-   
 }
+

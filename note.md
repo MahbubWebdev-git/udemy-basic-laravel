@@ -109,6 +109,10 @@
 - php artisan make:notification AdminNewUserAlertNotification
 - php artisan tinker
 
+# user permissin table
+- php artisan make:migration add_role_and_permissions_to_users_table --table=users
+
+
 
 
 
